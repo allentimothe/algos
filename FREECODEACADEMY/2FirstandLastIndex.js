@@ -64,6 +64,8 @@
   // return -1
 
     //=======================================================
+// FASTEST
+
 
   // def first_and_last(arr, target)
     // if len(arr) == 0
