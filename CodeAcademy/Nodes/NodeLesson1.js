@@ -101,3 +101,74 @@ firstNode.setNextNode(secondNode);
 console.log(firstNode.getNextNode());
 
 module.exports = Node;
+
+
+// Review: Nodes in JavaScript
+// Let’s see all of our Node class methods together in action!
+
+// Imagine we are working at an ice cream shop that sells three flavors: strawberry, vanilla, and coconut. The signature sundae is made of these three flavors, but our new hires have a hard time remembering the order.
+
+// To help them remember, our JavaScript nodes may do just the trick. Let’s get started…
+
+// Instructions
+// 1.
+// Outside of Node, instantiate three more nodes.
+
+// The first will represent our strawberry ice cream with the name, 'Berry Tasty'. Assign it to the variable, strawberryNode
+// The second will represent our vanilla ice cream with the value, 'Vanilla'. Assign it to the variable, vanillaNode
+// The third will represent our coconut ice cream with the value, 'Coconuts for Coconut'. Assign it to the variable, coconutNode
+// Checkpoint 2 Passed
+// 2.
+// Now let’s put these ice cream nodes in order. vanilla goes first, followed by strawberry. Finally, coconut goes after strawberry.
+
+// Below the newly created nodes, use your .setNextNode() method so that:
+
+// strawberryNode is the next node of vanillaNode
+// coconutNode the next node of strawberryNode
+// Checkpoint 3 Passed
+// 3.
+// Let’s walk through our ice cream nodes to make sure that they are linked in the correct order. Create a new currentNode and set it vanillaNode. We will use currentNode to iterate through the nodes, so declare it using let. Create a while loop that will only iterate when the currentNode is not null.
+
+// Inside the while loop, log out the currentNode’s data, and update currentNode to the next node.
+
+// We should see the ice cream flavors in order of vanilla, strawberry, and coconut in the terminal.
+
+// When your code is passing, take a moment to consider:
+
+// What other ways do you think nodes could be helpful for keeping track of and storing information?
+// What could happen if we added another link to the Node class?
+// What if we created an instance of a Node with another Node instance?
+
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+
+  setNextNode(node) {
+    if (node instanceof Node || node === null) {
+      this.next = node;
+    } else {
+      throw new Error('Next node must be a member of the Node class.');
+    }
+  }
+
+  getNextNode() {
+    return this.next;
+  }
+}
+
+  const strawberryNode = new Node('Berry Tasty');
+  const vanillaNode = new Node('Vanilla');
+  const coconutNode = new Node('Coconuts for Coconut');
+
+  vanillaNode.setNextNode(strawberryNode);
+  strawberryNode.setNextNode(coconutNode);
+
+  let currentNode = vanillaNode;
+  while(currentNode) {
+  console.log(currentNode.data);
+  currentNode = currentNode.getNextNode();
+  }
+module.exports = Node;
+
