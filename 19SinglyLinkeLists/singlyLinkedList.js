@@ -33,6 +33,7 @@ class SinglyLinkedList{
   }
 }
 
+
 var list = new SinglyLinkedList()
 list.push("HELLO");
 list.push("GOODBYE");
